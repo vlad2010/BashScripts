@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $1 ]
+then
+     gzip -cd $1 | tar -x
+else
+    echo Usage: tuz archive_name
+fi
+

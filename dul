@@ -1,0 +1,24 @@
+#!/bin/sh
+
+#print all directories sizes 
+
+for i in `ls -1`
+do
+
+echo "$i"
+
+if [ -d "$i" ]
+then 
+  du -sh "$i"
+else
+ echo  "$i is a file"
+fi
+
+
+done
+
+
+
+
+
+
