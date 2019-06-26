@@ -1,0 +1,8 @@
+#!/bin/sh
+
+FILES=$(git status --porcelain)
+
+echo ${FILES}
+
+
+
