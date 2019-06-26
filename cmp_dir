@@ -1,0 +1,21 @@
+#!/bin/sh
+
+#compare two folders, folders structure (including empty folders), and also check file checksum
+
+me=`basename "$0"`
+
+if [ "$#" -ne 2 ] 
+then
+    echo "Usage : ${me}  <folder1> <folder2>"
+    exit 1
+fi
+
+FOLDER1="$1"
+FOLDER2="$2"
+
+echo "Arguments:    Folder 1: ${FOLDER1} Folder 2: ${FOLDER2}"
+
+
+
+
+
