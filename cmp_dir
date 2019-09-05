@@ -3,6 +3,7 @@
 #compare two folders, folders structure (including empty folders), and also check file checksum
 
 
+# this method shoudl print checksums for all files in this folder
 function generate_checksums
 {
 
@@ -34,14 +35,14 @@ fi
 FOLDER1="$1"
 FOLDER2="$2"
 
-
+# check that first argument is folder
 if [[ ! -d $FOLDER1 ]]
 then
     echo "Error: First argument is not a folder: $FOLDER1"
     exit
 fi 
 
-
+# check that second argument is folder
 if [[ ! -d $FOLDER2 ]]
 then
     echo "Error: Second argument is not a folder: $FOLDER2"
@@ -58,9 +59,9 @@ SECONDCONTENT=$(ls -1R "$FOLDER2")
 
 
 
-echo $FIRSTCONTENT
+echo "First content $FIRSTCONTENT"
 echo ----------------------------------
-echo $SECONDCONTENT
+echo "Second content $SECONDCONTENT"
 
 
 generate_checksums "$FIRSTCONTENT"
