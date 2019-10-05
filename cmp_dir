@@ -2,6 +2,28 @@
 
 #compare two folders, folders structure (including empty folders), and also check file checksum
 
+
+# this method shoudl print checksums for all files in this folder
+function generate_checksums
+{
+
+while read -r line
+do
+echo
+echo "$line"
+SMM=$(cksum $line | awk '{print $1}')
+
+echo "Checksum: $SMM"
+
+done <<< "$1"
+
+
+}
+
+
+
+
+
 me=`basename "$0"`
 
 if [ "$#" -ne 2 ] 
@@ -13,7 +35,39 @@ fi
 FOLDER1="$1"
 FOLDER2="$2"
 
+# check that first argument is folder
+if [[ ! -d $FOLDER1 ]]
+then
+    echo "Error: First argument is not a folder: $FOLDER1"
+    exit
+fi 
+
+# check that second argument is folder
+if [[ ! -d $FOLDER2 ]]
+then
+    echo "Error: Second argument is not a folder: $FOLDER2"
+    exit
+fi 
+
+
 echo "Arguments:    Folder 1: ${FOLDER1} Folder 2: ${FOLDER2}"
+
+
+FIRSTCONTENT=$(ls -1R "$FOLDER1")
+
+SECONDCONTENT=$(ls -1R "$FOLDER2")
+
+
+
+echo "First content $FIRSTCONTENT"
+echo ----------------------------------
+echo "Second content $SECONDCONTENT"
+
+
+generate_checksums "$FIRSTCONTENT"
+
+
+
 
 
 
