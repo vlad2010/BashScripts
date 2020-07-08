@@ -1,0 +1,12 @@
+#!/bin/bash
+# usage: usbmon
+# USB devices monitoring
+
+while :; 
+  do 
+  clear
+  date
+  ioreg -p IOUSB
+  sleep 1
+done
+
